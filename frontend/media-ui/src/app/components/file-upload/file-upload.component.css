@@ -1,0 +1,14 @@
+.file-drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.file-drop-area.fileover {
+  border-color: #3f51b5;
+}
+
+input[type="file"] {
+
+}

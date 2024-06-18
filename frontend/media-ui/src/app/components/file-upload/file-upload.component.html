@@ -1,0 +1,12 @@
+<div class="file-drop-area" appDragDrop (fileDropped)="onFileDropped($event)">
+  <p>Drag & Drop your files here</p>
+  <p>or</p>
+  <input type="file" (change)="onFileSelected($event)" multiple />
+</div>
+<div *ngIf="files.length > 0">
+  <h3>Files</h3>
+  <ul>
+    <li *ngFor="let file of files">{{ file.name }}</li>
+  </ul>
+</div>
+<button mat-button (click)="uploadVideo()" *ngIf="fileUpload">Upload Video</button>

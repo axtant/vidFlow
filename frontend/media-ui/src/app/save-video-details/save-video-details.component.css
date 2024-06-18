@@ -1,0 +1,46 @@
+/* Define the grid container */
+.grid-container {
+  display: grid;
+  height: 100vh; /* Full height of the viewport */
+  grid-template-columns: 20% 30% 30% 20%; /* Define column widths */
+}
+
+/* Style for grid items */
+.grid-item1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f0f0f0; 
+  padding: 20px;
+}
+
+.grid-title {
+  display: flex;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Add padding to form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.example-chip-list {
+  margin-bottom: 20px;
+}
+
+/* Style for the file input section */
+.custom-file {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-file input[type="file"] {
+  margin-left: 10px;
+}
+
+button[type="submit"], button[type="button"] {
+  margin-top: 10px;
+}

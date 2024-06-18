@@ -1,0 +1,69 @@
+<div class="grid-container">
+  <div class="grid-item">Row 1 (20%)</div>
+
+  <div class="grid-item1">
+    <div class="grid-title">Add Video MetaData</div>
+    <form [formGroup]="saveVideoDetailsForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput [formControl]="title" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput [formControl]="description" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Video Status</mat-label>
+        <mat-select [formControl]="videoStatus">
+          <mat-option value="PUBLIC">PUBLIC</mat-option>
+          <mat-option value="PRIVATE">PRIVATE</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-chip-list">
+        <mat-label>Tags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter tags">
+          <mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input
+            placeholder="New tag..."
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-grid>
+      </mat-form-field>
+
+      <div>
+        <label for="inputGroupFile01">Upload Thumbnail:
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                   aria-describedby="inputGroupFileAddon01" (change)="onFileSelected($event)">
+          </div>
+        </label>
+        <div *ngIf="fileSelected">
+          <div>
+            <p>Selected File: {{selectedFileName}}</p>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload Thumbnail</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="grid-item">Row 3 (30%)</div>
+  <div class="grid-item">Row 4 (20%)</div>
+</div>
