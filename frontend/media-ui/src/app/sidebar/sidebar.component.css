@@ -1,0 +1,17 @@
+/* styles.css */
+.mat-list-item-inline {
+    display: flex;
+    align-items: center;
+}
+
+.mat-list-item-inline mat-icon[mat-list-icon] {
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mat-list-item-inline p {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}

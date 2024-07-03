@@ -1,26 +1,52 @@
-/* Define the grid container */
-.grid-container {
-  display: grid;
-  height: 100vh; /* Full height of the viewport */
-  grid-template-columns: 20% 30% 30% 20%; /* Define column widths */
-}
-
-/* Style for grid items */
-.grid-item1 {
+:host {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background-color: #f0f0f0; 
+  align-items: center;
   padding: 20px;
+  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
 }
 
-.grid-title {
+.header {
+  width: 100%;
+  background-color: #202020;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
   display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+.metadata-form {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-preview {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50%;
+  margin-top: 5%;
+}
+
+.form-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
-/* Add padding to form fields */
 mat-form-field {
   width: 100%;
   margin-bottom: 20px;
@@ -30,17 +56,137 @@ mat-form-field {
   margin-bottom: 20px;
 }
 
-/* Style for the file input section */
-.custom-file {
-  display: flex;
-  align-items: center;
+.thumbnail-upload {
   margin-bottom: 20px;
 }
 
-.custom-file input[type="file"] {
-  margin-left: 10px;
+.thumbnail-upload label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-button[type="submit"], button[type="button"] {
+.thumbnail-upload input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.thumbnail-upload button {
   margin-top: 10px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+/* New styles for buttons */
+.upload-thumbnail-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-thumbnail-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.save-btn {
+  background-color: red; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+.file-drop-area {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  text-align: center;
+  transition: border-color 0.3s;
+  background-color: white;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-drop-area.fileover {
+  border-color: #3f51b5;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-select-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 12px;
+}
+
+.file-select-button:hover {
+  background-color: #303f9f;
+}
+
+.files ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.files li {
+  background: #efefef;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.small {
+  font-size: 12px;
+  color: grey;
+}
+
+.upload-button {
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.upload-button:hover {
+  background-color: darkred;
+  color: white;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+
+p:first-of-type {
+  font-weight: bold;
+  color: #333;
 }

@@ -18,5 +18,5 @@ public class VideoDto {
     private String videoUrl;
     private VideoStatus videoStatus;
     private String thumbnailUrl;
-
+    private Integer viewCount;
 }

@@ -1,8 +1,10 @@
-<div class="grid-container">
-  <div class="grid-item">Row 1 (20%)</div>
+<div class="header">
+  <h1>Upload Your Video</h1>
+</div>
 
-  <div class="grid-item1">
-    <div class="grid-title">Add Video MetaData</div>
+<div class="main-content">
+  <div class="metadata-form">
+    <h2 class="form-title">Details</h2>
     <form [formGroup]="saveVideoDetailsForm">
       <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
@@ -11,7 +13,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
-        <input matInput [formControl]="description" required>
+        <textarea matInput [formControl]="description" required></textarea>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
@@ -41,29 +43,20 @@
         </mat-chip-grid>
       </mat-form-field>
 
-      <div>
-        <label for="inputGroupFile01">Upload Thumbnail:
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                   aria-describedby="inputGroupFileAddon01" (change)="onFileSelected($event)">
-          </div>
-        </label>
+      <div class="thumbnail-upload">
+        <label for="inputGroupFile01"><h2>Upload Thumbnail</h2></label>
+        <input type="file" id="inputGroupFile01" (change)="onFileSelected($event)">
         <div *ngIf="fileSelected">
-          <div>
-            <p>Selected File: {{selectedFileName}}</p>
-          </div>
-          <div>
-            <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload Thumbnail</button>
-          </div>
+          <p>Selected File: {{selectedFileName}}</p>
+          <button class="upload-thumbnail-btn" mat-raised-button color="primary" type="button" (click)="onUpload()">Upload Thumbnail</button>
         </div>
       </div>
 
-      <div>
-        <button type="submit" mat-raised-button color="primary">Save</button>
-      </div>
+      <button class="save-btn" type="submit" mat-raised-button color="primary" (click)="saveVideo()">Save</button>
     </form>
   </div>
 
-  <div class="grid-item">Row 3 (30%)</div>
-  <div class="grid-item">Row 4 (20%)</div>
+  <div class="video-preview">
+    <app-video-player [videoUrl]="videoUrl"></app-video-player>
+  </div>
 </div>

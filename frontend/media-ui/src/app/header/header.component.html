@@ -1,12 +1,12 @@
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>vidFlow</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>video_call</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="logo-container" (click)="navigateToHome()">
+      <img src="assets/logo.png" alt="vidFlow Logo" class="logo" />
+      <!-- <span class="app-name" style="cursor: pointer;">vidFlow</span> -->
+    </div>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="navigateToUploadVideo()">
+      <mat-icon style="cursor: pointer;">video_call</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

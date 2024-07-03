@@ -18,25 +18,24 @@ import java.util.UUID;
 public class S3Service implements FileService {
 
     public static final String BUCKET_NAME = "mymicroservices";
-    private final AmazonS3 amazonS3;  // Changed to AmazonS3
+    private final AmazonS3 amazonS3;  
 
     @Override
     public String uploadFile(MultipartFile file) {
-        var filenameExtension = StringUtils.getFilenameExtension(file.getOriginalFilename());
-        var key = UUID.randomUUID().toString() + "." + filenameExtension;  // Added a dot before the extension
+        var filenameExtension = StringUtils.getFilenameExtension(file.getOriginalFilename()); // Extracting file extention
+        var key = UUID.randomUUID().toString() + "." + filenameExtension; // Generating a unique key
 
-        var metadata = new ObjectMetadata();
+        var metadata = new ObjectMetadata(); // Setting metadata
         metadata.setContentLength(file.getSize());
         metadata.setContentType(file.getContentType());
 
-        try {
-            amazonS3.putObject(BUCKET_NAME, key, file.getInputStream(), metadata);  // Changed to amazonS3
+        try {   // Uploading to the bucket
+            amazonS3.putObject(BUCKET_NAME, key, file.getInputStream(), metadata); 
         } catch (IOException ioException) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                     "An Exception occurred while uploading file");
         }
-
         amazonS3.setObjectAcl(BUCKET_NAME, key, CannedAccessControlList.PublicRead);
-        return amazonS3.getUrl(BUCKET_NAME, key).toString();  // Changed to getUrl
+        return amazonS3.getUrl(BUCKET_NAME, key).toString();  // Returning the url
     }
 }

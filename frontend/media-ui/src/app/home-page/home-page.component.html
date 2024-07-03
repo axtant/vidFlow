@@ -1,0 +1,12 @@
+<mat-drawer-container class="example-container">
+    <app-sidebar></app-sidebar>
+
+    <div class="sidenav-content">
+        <div>
+            <h2>Featured Video</h2>
+            <div class="videos">
+                <app-video-card *ngFor="let featuredVideo of featuredVideos" [video]="featuredVideo"></app-video-card>
+            </div>
+        </div>
+    </div>
+</mat-drawer-container>

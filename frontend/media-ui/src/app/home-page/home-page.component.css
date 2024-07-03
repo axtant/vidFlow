@@ -1,0 +1,19 @@
+
+.example-container {
+    height: 100%;
+    border: 1px solid #555;
+}
+
+.sidenav-content {
+    margin-left: 10rem;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

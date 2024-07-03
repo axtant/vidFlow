@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VideoService } from '../video.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { VideoPlayerComponent } from '../video-player/video-player.component';
+import { VideoDto } from '../video-dto';
 
 
 
@@ -22,7 +23,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   selector: 'app-save-video-details',
   standalone: true,
   imports: [
-    // BrowserAnimationsModule,
+    VideoPlayerComponent,
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -54,10 +55,16 @@ export class SaveVideoDetailsComponent {
   selectedFile: File | null = null;
   videoId: string;
   snackBar = inject(MatSnackBar); 
+  videoUrl!:string;
+  thumbnailUrl!:string;
 
   constructor(private videoService: VideoService) {
     const activatedRoute = inject(ActivatedRoute);
     this.videoId = activatedRoute.snapshot.params['videoId'];
+    this.videoService.getVideo(this.videoId).subscribe(data=>{
+      this.videoUrl=data.videoUrl;
+      this.thumbnailUrl = data.thumbnailUrl;
+    })
     this.saveVideoDetailsForm = new FormGroup({
       title: this.title,
       description: this.description,
@@ -125,5 +132,21 @@ export class SaveVideoDetailsComponent {
     formData.append('file', file);
     formData.append('videoId', videoId);
     return formData;
+  }
+
+  saveVideo(){
+    // make calls to videoserviece
+    const videoMetaData: VideoDto={
+      "id":this.videoId,
+      "title": this.saveVideoDetailsForm.get('title')?.value,
+      "description":this.saveVideoDetailsForm.get('description')?.value,
+      "tags":this.tags,
+      "videoStatus":this.saveVideoDetailsForm.get('videoStatus')?.value,
+      "videoUrl":this.videoUrl,
+      "thumbnailUrl":this.thumbnailUrl
+    }
+    this.videoService.saveVideo(videoMetaData).subscribe(data =>{
+      this.snackBar.open("MetaData Updated Successfully!", 'Close')
+    })
   }
 }

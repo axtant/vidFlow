@@ -1,0 +1,111 @@
+body {
+    font-family: 'Nunito', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.main-content {
+    flex: 3;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-info h1 {
+    margin: 0 0 10px;
+    color: #333;
+    font-weight: 550;
+}
+
+.video-info p {
+    margin: 0;
+    color: #666;
+    flex-grow: 1;
+    width: 80%;
+}
+
+.view-counter {
+    font-size: 16px;
+    color: #666;
+    white-space: nowrap;
+    
+}
+
+.interaction-buttons {
+    display: flex;
+    gap: 10px;
+    float: right;
+    margin-top: 10px;
+}
+
+.like-button, .dislike-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.dislike-button {
+    background-color: #dc3545;
+}
+
+.like-button:hover, .dislike-button:hover {
+    opacity: 0.8;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}

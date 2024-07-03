@@ -1,4 +1,23 @@
+mat-toolbar {
+  background-color: #ffffff;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo {
+  height: 52px;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: bold;  
+}
+
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  
+  flex: 1 1 auto;
+}

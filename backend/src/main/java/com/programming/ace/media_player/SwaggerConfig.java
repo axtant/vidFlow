@@ -1,4 +1,5 @@
 package com.programming.ace.media_player;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,8 +27,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
     private ApiInfo apiInfoMetaData() {
 
         return new ApiInfoBuilder().title("vidFlow")
-                .description("API Endpoint Decoration ")
-                .contact(new Contact("Dev-Team", "https://www.dev-team.com/", "abhishek.gorde@capgemini.com"))
+                .description("API Endpoint Decoration")
+                .contact(new Contact("Dev-Team", "https://www.dev-team.com/", "dev-team@gmail.com"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")

@@ -6,6 +6,10 @@ import com.programming.ace.media_player.dto.VideoDto;
 import com.programming.ace.media_player.model.Video;
 import com.programming.ace.media_player.repository.VideoRepository;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -59,5 +63,37 @@ public class VideoService {
                 .orElseThrow(() -> new IllegalArgumentException("Cannot find video Id - "+ videoId));
     }
     
+    public VideoDto getVideoDetails(String videoId){
+        Video saveVideo = getVideoById(videoId);
+        
+        VideoDto videoDto = new VideoDto();
+        videoDto.setVideoUrl(saveVideo.getVideoUrl());
+        videoDto.setThumbnailUrl(saveVideo.getThumbnailUrl());
+        videoDto.setDescription(saveVideo.getDescription());
+        videoDto.setId(saveVideo.getId());
+        videoDto.setTitle(saveVideo.getTitle());
+        videoDto.setTags(saveVideo.getTags());
+        videoDto.setVideoStatus(saveVideo.getVideoStatus());
+
+        return videoDto;
+    }
+
+    public List<VideoDto> getAllVideos() {
+        return videoRepository.findAll().stream()
+                .map(this::mapToVideoDto)
+                .collect(Collectors.toList());
+    }
+    
+    private VideoDto mapToVideoDto(Video video) {
+        VideoDto videoDto = new VideoDto();
+        videoDto.setId(video.getId());
+        videoDto.setTitle(video.getTitle());
+        videoDto.setDescription(video.getDescription());
+        videoDto.setTags(video.getTags());
+        videoDto.setThumbnailUrl(video.getThumbnailUrl());
+        videoDto.setVideoUrl(video.getVideoUrl());
+        videoDto.setVideoStatus(video.getVideoStatus());
+        return videoDto;
+    }
 }
 
