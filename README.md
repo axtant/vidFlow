@@ -51,5 +51,4 @@ Set up your AWS CLI with proper credentials.
 - Build the Angular application with ng build --prod.
 - Upload the build output to an AWS S3 bucket.
 - Configure AWS CloudFront to serve the content for better performance.
-**4. Update Environment Variables:**
 - Ensure all endpoints and configuration variables are updated to reflect production settings.
